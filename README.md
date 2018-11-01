@@ -1,4 +1,4 @@
-# reafinedNotepad
+# refinedNotepad
 A simple Notepad-like program using Python.
 
 ## Objective
