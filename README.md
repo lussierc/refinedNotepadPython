@@ -19,4 +19,4 @@ There were a few different tools used to develop this project. Python3 was the p
 As this project is very early in it's development there are not many results to share.
 
 Here is an example of the program in action:
-![Here is an example of the program running.](program_in_action.png)
+![Here is an example of the program running.](images/program_in_action.png)
