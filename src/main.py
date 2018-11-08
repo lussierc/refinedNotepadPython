@@ -1,4 +1,6 @@
-## Refined Notepad Python Code:
+## Refined Notepad Python Code
+# Christian Lussier
+
 # Imports:
 from tkinter import *
 import tkinter.filedialog
@@ -37,16 +39,22 @@ class TextEditor: #set class
         self.text_area.pack(side = "left", fill = "both", expand = True)
         frame.pack()
 
-        the_menu = Menu(root) #creates menu
+        the_menu = Menu(root) # Creates the MAIN/ENTIRE Menu for the program!
+
+        # -------- File Menu --------:
         file_menu = Menu(the_menu, tearoff = 0) #creates menu
 
         file_menu.add_command(label = "Open", command = self.open_file) # add item/command to the menu
         file_menu.add_command(label = "Save", command = self.save_file) # add item/command to the menu
+
         file_menu.add_separator() # used for grouping commands
+
         file_menu.add_command(label = "Quit", command = self.quit_app) # menu item that allows user to quit the program
         the_menu.add_cascade(label = "File", menu = file_menu) # Add the pull down menu to the menu bar
+        # -------- END File Menu --------
 
-        # --- Help Menu ---:
+
+        # -------- Help Menu --------:
         help_menu = Menu(the_menu, tearoff = 0) # creates the help menu
 
         def show_about_section(): # creates pop-up message with about information when called
@@ -60,10 +68,11 @@ class TextEditor: #set class
         help_menu.add_command(label = "Help", command = show_helpcontact_section)
 
         the_menu.add_cascade(label = "Help", menu = help_menu) # adds the help menu to the entire menu "the_menu"
-        # --- End Help Menu ---
+        # -------- END Help Menu --------
+
 
         ## The Entire Menu Creation:
-        root.config(menu = the_menu) # displays the menu bar
+        root.config(menu = the_menu) # displays the menu bar in the program's runspace
 
 root = Tk()
 text_editor = TextEditor(root)
