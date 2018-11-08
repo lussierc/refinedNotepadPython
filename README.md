@@ -16,7 +16,7 @@ Currently there is no way to explicitly "test" the program other than by running
 There were a few different tools used to develop this project. Python3 was the programming language of choice for the program's development. Atom was used as the text editor where all of the coding was done and where all the project documentation was written.
 
 ## Project Results
-As this project is very early in it's development there are not many results to share.
+As this project is early in it's development there are not many results to share.
 
 Here is an example of the program in action:
 ![Here is an example of the program running.](images/program_in_action.png)
