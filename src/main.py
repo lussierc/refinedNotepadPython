@@ -49,10 +49,15 @@ class TextEditor: #set class
         # --- Help Menu ---:
         help_menu = Menu(the_menu, tearoff = 0) # creates the help menu
 
-        def show_about_section(event=None): # creates pop-up message with about information when called
+        def show_about_section(): # creates pop-up message with about information when called
             messagebox.showinfo("About", "This program was made to help the creator learn more about Python. It is still a work in progress!") # adds content to the pop-up message
 
+        def show_helpcontact_section():
+            messagebox.showinfo("Issues?", "Please leave an issue in the projects Issue Tracker. https://github.com/lussierc/refinedNotepadPython/issues")
+
+
         help_menu.add_command(label = "About The Program", command = show_about_section) # adds the about command to the help menu's cascade
+        help_menu.add_command(label = "Help", command = show_helpcontact_section)
 
         the_menu.add_cascade(label = "Help", menu = help_menu) # adds the help menu to the entire menu "the_menu"
         # --- End Help Menu ---
