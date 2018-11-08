@@ -43,7 +43,13 @@ class TextEditor: #set class
         file_menu.add_command(label = "Save", command = self.save_file) # add item/command to the menu
         file_menu.add_separator() # used for grouping commands
         file_menu.add_command(label = "Quit", command = self.quit_app) # menu item that allows user to quit the program
-        the_menu.add_cascade(label = "File", menu = file_menu)         # Add the pull down menu to the menu bar
+        the_menu.add_cascade(label = "File", menu = file_menu) # Add the pull down menu to the menu bar
+
+        help_menu = Menu(the_menu, tearoff = 0) # creates the help menu
+
+
+        the_menu.add_cascade(label = "Help", menu = help_menu) # adds the help menu to the entire menu "the_menu"
+
         root.config(menu = the_menu) # displays the menu bar
 
 root = Tk()
