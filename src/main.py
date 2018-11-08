@@ -2,6 +2,7 @@
 # Imports:
 from tkinter import *
 import tkinter.filedialog
+from tkinter import messagebox
 
 class TextEditor: #set class
     @staticmethod
@@ -47,6 +48,10 @@ class TextEditor: #set class
 
         help_menu = Menu(the_menu, tearoff = 0) # creates the help menu
 
+        def show_about(event=None):
+            messagebox.showwarning("About", "This program was made to help the creator learn more about Python. It is still a work in progress!")
+
+        help_menu.add_command(label = "About The Program", command = show_about)
 
         the_menu.add_cascade(label = "Help", menu = help_menu) # adds the help menu to the entire menu "the_menu"
 
