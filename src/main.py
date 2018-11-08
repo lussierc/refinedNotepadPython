@@ -46,15 +46,18 @@ class TextEditor: #set class
         file_menu.add_command(label = "Quit", command = self.quit_app) # menu item that allows user to quit the program
         the_menu.add_cascade(label = "File", menu = file_menu) # Add the pull down menu to the menu bar
 
+        # --- Help Menu ---:
         help_menu = Menu(the_menu, tearoff = 0) # creates the help menu
 
-        def show_about(event=None):
-            messagebox.showwarning("About", "This program was made to help the creator learn more about Python. It is still a work in progress!")
+        def show_about_section(event=None): # creates pop-up message with about information when called
+            messagebox.showwarning("About", "This program was made to help the creator learn more about Python. It is still a work in progress!") # adds content to the pop-up message
 
-        help_menu.add_command(label = "About The Program", command = show_about)
+        help_menu.add_command(label = "About The Program", command = show_about_section) # adds the about command to the help menu's cascade
 
         the_menu.add_cascade(label = "Help", menu = help_menu) # adds the help menu to the entire menu "the_menu"
+        # --- End Help Menu ---
 
+        ## The Entire Menu Creation:
         root.config(menu = the_menu) # displays the menu bar
 
 root = Tk()
