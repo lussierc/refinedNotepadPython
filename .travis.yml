@@ -1,0 +1,10 @@
+## Travis File
+
+# run checks on Markdown writing through proselint script:
+install:
+  #proselint install:
+  - sudo pip install proselint
+
+script:
+  # use proselint
+  - proselint README.md
