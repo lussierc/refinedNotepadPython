@@ -1,15 +1,15 @@
 ## Travis File
-
+language: python
+python:
+  - "3.7"
+  
 # run checks on Markdown writing through proselint script:
 install:
   #proselint install:
   - sudo pip install proselint
-
-# command to install dependencies
-install:
   - pip install --upgrade pip
-  - pip install pep8
-  
+  - pip3 install pep8
+
 script:
   # use proselint
   - proselint README.md
