@@ -1,13 +1,13 @@
-## Refined Notepad Python Code
+# -- Refined Notepad Python Code
 # Christian Lussier
 
 # Imports:
-from tkinter import *
+from tkinter import *  # import all tkinter files
 import tkinter.filedialog
 from tkinter import messagebox  # imports the messagebox
 
 
-class TextEditor:  # set class
+class TextEditor:  # create TextEditor class
     @staticmethod
     def quit_app(event=None):  # function for quitting the program
         root.quit()  # quits the program
@@ -15,9 +15,9 @@ class TextEditor:  # set class
     def save_file(self, event=None):  # function for saving files
         # Opens the save as dialog box
         file = tkinter.filedialog.asksaveasfile(mode="w")
-        if file != None:
-            data = self.text_area.get("1.0", END + "-1c")
-            file.write(data)  # saves the data/info to the file
+        if cond is not None:  # !=
+            filedata = self.text_area.get("1.0", END + "-1c")
+            file.write(filedata)  # saves the file's data/info to the file
             file.close()  # closes the file
 
     def open_file(self, event=None):  # function for openign a file
@@ -34,10 +34,11 @@ class TextEditor:  # set class
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
         root.geometry("600x550")  # sets the window size for program
-        frame = Frame(root, width=600, height=550)  # sets the frame size for program
-        scrollbar = Scrollbar(frame)  # creates a scrollbar for scrolling through text
+        frame = Frame(root, width=600, height=550)  # sets the window size
+        scrollbar = Scrollbar(frame)  # creates a scrollbar
         self.text_area = Text(
-            frame, width=600, height=550, yscrollcommand=scrollbar.set, padx=10, pady=10
+            frame, width=600, height=550, yscrollcommand=scrollbar.set,
+            padx=10, pady=10
         )  # sets area where text will be, with scrollbar
         scrollbar.config(command=self.text_area.yview)
         scrollbar.pack(side="right", fill="y")  # sets scrollbar location
@@ -69,16 +70,18 @@ class TextEditor:  # set class
         # -------- Help Menu --------:
         help_menu = Menu(the_menu, tearoff=0)  # creates the help menu
 
-        def show_about_section():  # creates pop-up message with about information when called
+        def show_about_section():  # creates pop-up message for about section
             messagebox.showinfo(
                 "About",
-                "This program was made to help the creator learn more about Python. It is still a work in progress!",
+                '''This program was made to help the creator learn more about
+                Python. It is still a work in progress!''',
             )  # adds content to the pop-up message
 
         def show_helpcontact_section():
             messagebox.showinfo(
                 "Issues?",
-                "Please leave an issue in the projects Issue Tracker. https://github.com/lussierc/refinedNotepadPython/issues",
+                '''Please leave an issue in the projects Issue Tracker.
+                https://github.com/lussierc/refinedNotepadPython/issues''',
             )
 
         help_menu.add_command(
@@ -93,10 +96,11 @@ class TextEditor:  # set class
         )  # adds the cascading help menu to "the_menu"
         # -------- END Help Menu --------
 
-        ## The Entire Menu Creation:
-        root.config(menu=the_menu)  # displays the menu bar in the program's runspace
+        # The Entire Menu Creation:
+        root.config(menu=the_menu)  # displays the menu bar
 
 
+# Run everything:
 root = Tk()
 text_editor = TextEditor(root)
 root.mainloop()
