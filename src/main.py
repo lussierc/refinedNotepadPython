@@ -9,7 +9,7 @@ from tkinter import messagebox  # imports the messagebox
 
 class TextEditor:  # create TextEditor class
     @staticmethod
-    def quit_app(event=None):  # function for quitting the program
+    def exit_app(event=None):  # function for quitting the program
         root.quit()  # quits the program
 
     def save_file(self, event=None):  # function for saving files
@@ -60,7 +60,7 @@ class TextEditor:  # create TextEditor class
         file_menu.add_separator()  # used for grouping commands
 
         file_menu.add_command(
-            label="Quit", command=self.quit_app
+            label="Exit", command=self.exit_app
         )  # menu item that allows user to quit the program
         the_menu.add_cascade(
             label="File", menu=file_menu
