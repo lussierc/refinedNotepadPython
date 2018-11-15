@@ -96,7 +96,6 @@ class TextEditor:  # create TextEditor class
         )  # adds the cascading help menu to "the_menu"
         # -------- END Help Menu --------
 
-        # The Entire Menu Creation:
         root.config(menu=the_menu)  # displays the menu bar
 
 
