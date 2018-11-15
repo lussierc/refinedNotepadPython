@@ -70,7 +70,6 @@ class TextEditor:  # create TextEditor class
         # -------- Help Menu --------:
         help_menu = Menu(the_menu, tearoff=0)  # creates the help menu
 
-        x = """This program was made to help the creator learn more about Python."""
         def show_about_section():  # creates pop-up message for about section
             messagebox.showinfo(
                 "About",
