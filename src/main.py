@@ -14,7 +14,9 @@ class TextEditor:  # create TextEditor class
 
     def save_file(self, event=None):  # function for saving files
         # Opens the save as dialog box
-        file = tkinter.filedialog.asksaveasfile(mode="w", defaultextension=".txt")
+        file = tkinter.filedialog.asksaveasfile(
+            mode="w", defaultextension=".txt"
+        )
         if cond is not None:  # !=
             filedata = self.text_area.get("1.0", END + "-1c")
             file.write(filedata)  # saves the file's data/info to the file
