@@ -46,7 +46,6 @@ class TextEditor:  # create TextEditor class
     def redo(self):
         self.text.edit_redo()
 
-
     def __init__(self, root):  # initializes the notepad program
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
@@ -79,23 +78,33 @@ class TextEditor:  # create TextEditor class
             label="Save As", command=self.save_file_as
         )  # add item/command to the menu
 
-        file_menu.add_command(
-            label="UNDO", command=self.undo
-        )  # add item/command to the menu
 
-        file_menu.add_command(
-            label="REDO", command=self.redo
-        )  # add item/command to the menu
 
-        file_menu.add_separator()  # used for grouping commands
+        file_menu.add_separator()  # group grouping commands
 
         file_menu.add_command(
             label="Exit", command=self.exit_app
         )  # menu item that allows user to quit the program
+
         the_menu.add_cascade(
             label="File", menu=file_menu
         )  # Add the pull down menu to the menu bar
         # -------- END File Menu --------
+
+        # -------- Edit menu --------:
+        edit_menu = Menu(the_menu, tearoff=0)  # creates menu
+
+        edit_menu.add_command(
+            label="Undo", command=self.undo
+        )  # add item/command to the menu
+
+        edit_menu.add_command(
+            label="Redo", command=self.redo
+        )  # add item/command to the menu
+
+        the_menu.add_cascade(
+            label="Edit", menu=edit_menu
+        )  # Add the pull down menu to the menu bar
 
         # -------- Help Menu --------:
         help_menu = Menu(the_menu, tearoff=0)  # creates the help menu
