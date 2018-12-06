@@ -22,7 +22,7 @@ class TextEditor:  # create TextEditor class
         file = tkinter.filedialog.asksaveasfile(
             mode="w", defaultextension=".txt"
         )
-        if cond is not None:  # !=
+        if file is not None:  # !=
             filedata = self.text.get("1.0", END + "-1c")
             file.write(filedata)  # saves the file's data/info to the file
             file.close()  # closes the file
