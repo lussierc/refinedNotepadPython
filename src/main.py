@@ -33,23 +33,23 @@ class TextEditor:  # create TextEditor class
             parent=root, initialdir=""
         )  # does variety of tasks, sets the initial directory.
         if txt_file:
-            self.text.delete(1.0, END)
+            self.text.delete(1.0, END) # deletes current text
             with open(txt_file) as _file:
                 self.text.insert(1.0, _file.read())
                 root.update_idletasks()
 
     def undo(self, *args):
         """Function for undoing actions in the notepad."""
-        self.text.edit_undo()
+        self.text.edit_undo()  # undos an action
 
     def redo(self):
         """Function for redoing actions in the notepad."""
-        self.text.edit_redo()
+        self.text.edit_redo()  # redos an action
 
     def copy(self):
         """Function for copying text in the notepad."""
         copy_item = self.text.selection_get()
-        self.clipboard = copy_item
+        self.clipboard = copy_item  # gets the copied item
 
     def cut(self):
         """Function for cutting text in the notepad."""
@@ -66,7 +66,7 @@ class TextEditor:  # create TextEditor class
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
         root.geometry("600x550")  # sets the window size for program
-        frame = Frame(root, width=600, height=550)  # sets the window size
+        frame = Frame(root, width=600, height=550)  # sets the window size for the fram
         scrollbar = Scrollbar(frame)  # creates a scrollbar
         self.text = Text(
             frame, width=600, height=550, yscrollcommand=scrollbar.set,
@@ -92,7 +92,7 @@ class TextEditor:  # create TextEditor class
             label="Save As", command=self.save_file_as
         )  # add item/command to the menu
 
-        file_menu.add_separator()  # group grouping commands
+        file_menu.add_separator()  # separator for better grouping commands
 
         file_menu.add_command(
             label="Exit", command=self.exit_app
@@ -114,7 +114,7 @@ class TextEditor:  # create TextEditor class
             label="Redo", command=self.redo
         )  # add item/command to the menu
 
-        edit_menu.add_separator()
+        edit_menu.add_separator() # separator for better grouping commands
 
         edit_menu.add_command(
             label="Copy", command=self.copy
