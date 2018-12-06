@@ -1,6 +1,9 @@
 # -- Refined Notepad Python Code
 # Christian Lussier
 
+"""This file contains the code for the RefinedNotepadPython program.
+This program is a simple notepad application for writing quick documents."""
+
 # Imports:
 from tkinter import *  # import all tkinter files
 import tkinter.filedialog
@@ -13,7 +16,6 @@ class TextEditor:  # create TextEditor class
         """Function for quitting the program."""
         root.quit()  # quits the program
 
-<<<<<<< HEAD
     def save_file(self, event=None):  # function for saving files
         """Save the file currently being worked on."""
         # Opens the save as dialog box
@@ -24,24 +26,6 @@ class TextEditor:  # create TextEditor class
             filedata = self.text_area.get("1.0", END + "-1c")
             file.write(filedata)  # saves the file's data/info to the file
             file.close()  # closes the file
-=======
-    def save_file(self):
-        try:
-            t = self.text.get(0.0, END)
-            f = open(self.filename, 'w')
-            f.write(t)
-            f.close()
-        except:
-            print("no")
-
-    def save_file_as(self):  # function for saving files
-        f = tkinter.filedialog.asksaveasfile(mode='w', defaultextension='.txt')
-        t = self.text.get(0.0, END)
-        try:
-            f.write(t.rstrip())
-        except:
-            showerror(title="Oops!", message="Unable to save file...")
->>>>>>> origin/master
 
     def open_file(self, event=None):
         """Function for opening files. Uses a dialog/pop-up box."""
@@ -54,30 +38,31 @@ class TextEditor:  # create TextEditor class
                 self.text.insert(1.0, _file.read())
                 root.update_idletasks()
 
-<<<<<<< HEAD
-    def __init__(self, root):
-        """Program's 'driver' function. Initializes the program."""
-=======
     def undo(self, *args):
+        """Function for undoing actions in the notepad."""
         self.text.edit_undo()
 
     def redo(self):
+        """Function for redoing actions in the notepad."""
         self.text.edit_redo()
 
     def copy(self):
+        """Function for copying text in the notepad."""
         copy_item = self.text.selection_get()
         self.clipboard = copy_item
 
     def cut(self):
+        """Function for cutting text in the notepad."""
         cut_item = self.text.selection_get()
         self.clipboard = cut_item
         self.text.delete(SEL_FIRST, SEL_LAST)
 
     def paste(self):
+        """Function for pasting (copied or cut) text in the notepad."""
         self.text.insert(INSERT, self.clipboard)
 
-    def __init__(self, root):  # initializes the notepad program
->>>>>>> origin/master
+    def __init__(self, root):
+        """The program's 'driver' function. Initializes the program."""
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
         root.geometry("600x550")  # sets the window size for program
@@ -182,7 +167,7 @@ class TextEditor:  # create TextEditor class
         root.config(menu=the_menu)  # displays the menu bar
 
 
-# Run everything:
+# Run the program:
 root = Tk()
 text_editor = TextEditor(root)
 root.mainloop()
