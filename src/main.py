@@ -33,7 +33,7 @@ class TextEditor:  # create TextEditor class
             parent=root, initialdir=""
         )  # does variety of tasks, sets the initial directory.
         if txt_file:
-            self.text.delete(1.0, END) # deletes current text
+            self.text.delete(1.0, END)  # deletes current text
             with open(txt_file) as _file:
                 self.text.insert(1.0, _file.read())
                 root.update_idletasks()
@@ -66,7 +66,7 @@ class TextEditor:  # create TextEditor class
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
         root.geometry("600x550")  # sets the window size for program
-        frame = Frame(root, width=600, height=550)  # sets the window size for the fram
+        frame = Frame(root, width=600, height=550)  # sets the frame size
         scrollbar = Scrollbar(frame)  # creates a scrollbar
         self.text = Text(
             frame, width=600, height=550, yscrollcommand=scrollbar.set,
@@ -114,7 +114,7 @@ class TextEditor:  # create TextEditor class
             label="Redo", command=self.redo
         )  # add item/command to the menu
 
-        edit_menu.add_separator() # separator for better grouping commands
+        edit_menu.add_separator()  # separator for better grouping commands
 
         edit_menu.add_command(
             label="Copy", command=self.copy
