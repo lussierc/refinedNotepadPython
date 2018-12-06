@@ -1,6 +1,9 @@
 # -- Refined Notepad Python Code
 # Christian Lussier
 
+"""This file contains the code for the RefinedNotepadPython program.
+This program is a simple notepad application for writing quick documents."""
+
 # Imports:
 from tkinter import *  # import all tkinter files
 import tkinter.filedialog
@@ -9,59 +12,61 @@ from tkinter import messagebox  # imports the messagebox
 
 class TextEditor:  # create TextEditor class
     @staticmethod
-    def exit_app(event=None):  # function for quitting the program
+    def exit_app(event=None):
+        """Function for quitting the program."""
         root.quit()  # quits the program
 
-    def save_file(self):
-        try:
-            t = self.text.get(0.0, END)
-            f = open(self.filename, 'w')
-            f.write(t)
-            f.close()
-        except:
-            print("no")
+    def save_file(self, event=None):  # function for saving files
+        """Save the file currently being worked on."""
+        # Opens the save as dialog box
+        file = tkinter.filedialog.asksaveasfile(
+            mode="w", defaultextension=".txt"
+        )
+        if file is not None:  # !=
+            filedata = self.text.get("1.0", END + "-1c")
+            file.write(filedata)  # saves the file's data/info to the file
+            file.close()  # closes the file
 
-    def save_file_as(self):  # function for saving files
-        f = tkinter.filedialog.asksaveasfile(mode='w', defaultextension='.txt')
-        t = self.text.get(0.0, END)
-        try:
-            f.write(t.rstrip())
-        except:
-            showerror(title="Oops!", message="Unable to save file...")
-
-    def open_file(self, event=None):  # function for openign a file
+    def open_file(self, event=None):
+        """Function for opening files. Uses a dialog/pop-up box."""
         txt_file = tkinter.filedialog.askopenfilename(
             parent=root, initialdir=""
         )  # does variety of tasks, sets the initial directory.
         if txt_file:
-            self.text.delete(1.0, END)
+            self.text.delete(1.0, END)  # deletes current text
             with open(txt_file) as _file:
                 self.text.insert(1.0, _file.read())
                 root.update_idletasks()
 
     def undo(self, *args):
-        self.text.edit_undo()
+        """Function for undoing actions in the notepad."""
+        self.text.edit_undo()  # undos an action
 
     def redo(self):
-        self.text.edit_redo()
+        """Function for redoing actions in the notepad."""
+        self.text.edit_redo()  # redos an action
 
     def copy(self):
+        """Function for copying text in the notepad."""
         copy_item = self.text.selection_get()
-        self.clipboard = copy_item
+        self.clipboard = copy_item  # gets the copied item
 
     def cut(self):
+        """Function for cutting text in the notepad."""
         cut_item = self.text.selection_get()
         self.clipboard = cut_item
         self.text.delete(SEL_FIRST, SEL_LAST)
 
     def paste(self):
+        """Function for pasting (copied or cut) text in the notepad."""
         self.text.insert(INSERT, self.clipboard)
 
-    def __init__(self, root):  # initializes the notepad program
+    def __init__(self, root):
+        """The program's 'driver' function. Initializes the program."""
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
         root.geometry("600x550")  # sets the window size for program
-        frame = Frame(root, width=600, height=550)  # sets the window size
+        frame = Frame(root, width=600, height=550)  # sets the frame size
         scrollbar = Scrollbar(frame)  # creates a scrollbar
         self.text = Text(
             frame, width=600, height=550, yscrollcommand=scrollbar.set,
@@ -83,11 +88,8 @@ class TextEditor:  # create TextEditor class
         file_menu.add_command(
             label="Save", command=self.save_file
         )  # add item/command to the menu
-        file_menu.add_command(
-            label="Save As", command=self.save_file_as
-        )  # add item/command to the menu
 
-        file_menu.add_separator()  # group grouping commands
+        file_menu.add_separator()  # separator for better grouping commands
 
         file_menu.add_command(
             label="Exit", command=self.exit_app
@@ -109,7 +111,7 @@ class TextEditor:  # create TextEditor class
             label="Redo", command=self.redo
         )  # add item/command to the menu
 
-        edit_menu.add_separator()
+        edit_menu.add_separator()  # separator for better grouping commands
 
         edit_menu.add_command(
             label="Copy", command=self.copy
@@ -131,6 +133,7 @@ class TextEditor:  # create TextEditor class
         help_menu = Menu(the_menu, tearoff=0)  # creates the help menu
 
         def show_about_section():  # creates pop-up message for about section
+            """This function shows the about section."""
             messagebox.showinfo(
                 "About",
                 "This program was made to help the creator "
@@ -140,6 +143,7 @@ class TextEditor:  # create TextEditor class
             )  # adds content to the pop-up message
 
         def show_helpcontact_section():
+            """This function shows the help/contact section."""
             messagebox.showinfo(
                 "Issues?",
                 "Please leave an issue in the projects Issue Tracker.\n"
@@ -162,7 +166,7 @@ class TextEditor:  # create TextEditor class
         root.config(menu=the_menu)  # displays the menu bar
 
 
-# Run everything:
+# Run the program:
 root = Tk()
 text_editor = TextEditor(root)
 root.mainloop()
