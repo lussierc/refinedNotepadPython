@@ -46,6 +46,18 @@ class TextEditor:  # create TextEditor class
     def redo(self):
         self.text.edit_redo()
 
+    def copy(self):
+    	copy_item = self.text.selection_get()
+    	self.clipboard = copy_item
+
+    def cut(self):
+        cut_item = self.text.selection_get()
+        self.clipboard = cut_item
+        self.text.delete(cut_item_first, cut_item_last)
+
+    def paste(self):
+        self.text.insert(INSERT, self.clipboard)
+
     def __init__(self, root):  # initializes the notepad program
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
