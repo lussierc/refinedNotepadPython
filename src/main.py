@@ -9,10 +9,12 @@ from tkinter import messagebox  # imports the messagebox
 
 class TextEditor:  # create TextEditor class
     @staticmethod
-    def exit_app(event=None):  # function for quitting the program
+    def exit_app(event=None):
+        """Function for quitting the program."""
         root.quit()  # quits the program
 
     def save_file(self, event=None):  # function for saving files
+        """Save the file currently being worked on."""
         # Opens the save as dialog box
         file = tkinter.filedialog.asksaveasfile(
             mode="w", defaultextension=".txt"
@@ -22,7 +24,8 @@ class TextEditor:  # create TextEditor class
             file.write(filedata)  # saves the file's data/info to the file
             file.close()  # closes the file
 
-    def open_file(self, event=None):  # function for openign a file
+    def open_file(self, event=None):
+        """Function for opening files. Uses a dialog/pop-up box."""
         txt_file = tkinter.filedialog.askopenfilename(
             parent=root, initialdir=""
         )  # does variety of tasks, sets the initial directory.
@@ -32,7 +35,8 @@ class TextEditor:  # create TextEditor class
                 self.text_area.insert(1.0, _file.read())
                 root.update_idletasks()
 
-    def __init__(self, root):  # initializes the notepad program
+    def __init__(self, root):
+        """Program's 'driver' function. Initializes the program."""
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
         root.geometry("600x550")  # sets the window size for program
