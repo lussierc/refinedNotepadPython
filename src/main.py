@@ -51,7 +51,7 @@ class TextEditor:  # create TextEditor class
         scrollbar = Scrollbar(frame)  # creates a scrollbar
         self.text = Text(
             frame, width=600, height=550, yscrollcommand=scrollbar.set,
-            padx=10, pady=10
+            padx=10, pady=10, undo=True
         )  # sets area where text will be, with scrollbar
         scrollbar.config(command=self.text.yview)
         scrollbar.pack(side="right", fill="y")  # sets scrollbar location
