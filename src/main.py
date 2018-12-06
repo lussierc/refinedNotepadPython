@@ -21,7 +21,6 @@ class TextEditor:  # create TextEditor class
         except:
             print("no")
 
-
     def save_file_as(self):  # function for saving files
         f = tkinter.filedialog.asksaveasfile(mode='w', defaultextension='.txt')
         t = self.text.get(0.0, END)
@@ -47,8 +46,8 @@ class TextEditor:  # create TextEditor class
         self.text.edit_redo()
 
     def copy(self):
-    	copy_item = self.text.selection_get()
-    	self.clipboard = copy_item
+        copy_item = self.text.selection_get()
+        self.clipboard = copy_item
 
     def cut(self):
         cut_item = self.text.selection_get()
@@ -75,8 +74,6 @@ class TextEditor:  # create TextEditor class
 
         the_menu = Menu(root)  # Creates the MAIN/ENTIRE Menu for the program!
 
-
-
         # -------- File Menu --------:
         file_menu = Menu(the_menu, tearoff=0)  # creates menu
 
@@ -89,8 +86,6 @@ class TextEditor:  # create TextEditor class
         file_menu.add_command(
             label="Save As", command=self.save_file_as
         )  # add item/command to the menu
-
-
 
         file_menu.add_separator()  # group grouping commands
 
@@ -128,7 +123,6 @@ class TextEditor:  # create TextEditor class
             label="Paste", command=self.paste
         )  # add item/command to the menu
 
-
         the_menu.add_cascade(
             label="Edit", menu=edit_menu
         )  # Add the pull down menu to the menu bar
@@ -164,7 +158,6 @@ class TextEditor:  # create TextEditor class
             label="Help", menu=help_menu
         )  # adds the cascading help menu to "the_menu"
         # -------- END Help Menu --------
-
 
         root.config(menu=the_menu)  # displays the menu bar
 
