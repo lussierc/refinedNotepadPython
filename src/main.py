@@ -23,7 +23,7 @@ class TextEditor:  # create TextEditor class
             mode="w", defaultextension=".txt"
         )
         if cond is not None:  # !=
-            filedata = self.text_area.get("1.0", END + "-1c")
+            filedata = self.text.get("1.0", END + "-1c")
             file.write(filedata)  # saves the file's data/info to the file
             file.close()  # closes the file
 
@@ -87,9 +87,6 @@ class TextEditor:  # create TextEditor class
         )  # add item/command to the menu
         file_menu.add_command(
             label="Save", command=self.save_file
-        )  # add item/command to the menu
-        file_menu.add_command(
-            label="Save As", command=self.save_file_as
         )  # add item/command to the menu
 
         file_menu.add_separator()  # separator for better grouping commands
