@@ -114,6 +114,7 @@ class TextEditor:  # create TextEditor class
             label="Redo", command=self.redo
         )  # add item/command to the menu
 
+        edit_menu.add_separator()
 
         edit_menu.add_command(
             label="Copy", command=self.copy
