@@ -53,7 +53,7 @@ class TextEditor:  # create TextEditor class
     def cut(self):
         cut_item = self.text.selection_get()
         self.clipboard = cut_item
-        self.text.delete(cut_item_first, cut_item_last)
+        self.text.delete(SEL_FIRST, SEL_LAST)
 
     def paste(self):
         self.text.insert(INSERT, self.clipboard)
@@ -113,6 +113,20 @@ class TextEditor:  # create TextEditor class
         edit_menu.add_command(
             label="Redo", command=self.redo
         )  # add item/command to the menu
+
+
+        edit_menu.add_command(
+            label="Copy", command=self.copy
+        )  # add item/command to the menu
+
+        edit_menu.add_command(
+            label="Cut", command=self.cut
+        )  # add item/command to the menu
+
+        edit_menu.add_command(
+            label="Paste", command=self.paste
+        )  # add item/command to the menu
+
 
         the_menu.add_cascade(
             label="Edit", menu=edit_menu
