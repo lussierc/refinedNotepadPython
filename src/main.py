@@ -136,6 +136,7 @@ class TextEditor:  # create TextEditor class
         help_menu = Menu(the_menu, tearoff=0)  # creates the help menu
 
         def show_about_section():  # creates pop-up message for about section
+            """This function shows the about section."""
             messagebox.showinfo(
                 "About",
                 "This program was made to help the creator "
@@ -145,6 +146,7 @@ class TextEditor:  # create TextEditor class
             )  # adds content to the pop-up message
 
         def show_helpcontact_section():
+            """This function shows the help/contact section."""
             messagebox.showinfo(
                 "Issues?",
                 "Please leave an issue in the projects Issue Tracker.\n"
