@@ -43,6 +43,10 @@ class TextEditor:  # create TextEditor class
     def undo(self, *args):
         self.text.edit_undo()
 
+    def redo(self):
+        self.text.edit_redo()
+
+
     def __init__(self, root):  # initializes the notepad program
         self.text_to_write = ""
         root.title("Refined Notepad")  # sets the program title
@@ -77,6 +81,10 @@ class TextEditor:  # create TextEditor class
 
         file_menu.add_command(
             label="UNDO", command=self.undo
+        )  # add item/command to the menu
+
+        file_menu.add_command(
+            label="REDO", command=self.redo
         )  # add item/command to the menu
 
         file_menu.add_separator()  # used for grouping commands
