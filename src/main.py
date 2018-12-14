@@ -55,11 +55,11 @@ class TextEditor:  # create TextEditor class
         """Function for cutting text in the notepad."""
         cut_item = self.text.selection_get()  # gets the selected text to cut
         self.clipboard = cut_item  # adds the selected text to the clipboard
-        self.text.delete(SEL_FIRST, SEL_LAST)  # finishs cutting selected text -- deletes the selected text that is saved to keyboard
+        self.text.delete(SEL_FIRST, SEL_LAST)  # deletes the cut text
 
     def paste(self):
         """Function for pasting (copied or cut) text in the notepad."""
-        self.text.insert(INSERT, self.clipboard)  # inserts copied or cut text that is currently saved by clipboard
+        self.text.insert(INSERT, self.clipboard)  # inserts copied or cut text
 
     def __init__(self, root):
         """The program's 'driver' function. Initializes the program."""
