@@ -1,9 +1,13 @@
 # refinedNotepad
 A simple Notepad-like program using Python.
 
-## Objective
+## What is refinedNotepad?
+Refined Notepad is a simple text editor created using the Python programming language and a variety of other software development tools. The user can type in the text area and save to a `.txt` file with a name of their choice. There are also features such as an undo feature, redo feature, and more. These features allow for easier usability of the program.
+
+### Objective
 To make a simple Notepad-like program using the Python programming language in order to strengthen and expand my understanding of Python. Add new features to the project that require different Python skills.
 
+Additionally, another objective of this project was to teach me how to create GUIs in Python using the Tkinter package.
 ## Building & Running The Project
 As the program is currently extremely basic, it can only be opened using Terminal. To do so, navigate to where the files for the program are located. Make sure you are in the src folder where the file `main.py` is located. Finally, make sure Python3 is installed on your machine.
 Then, use the following command to run the program:
@@ -14,6 +18,8 @@ Then, use the following command to run the program:
 
 ## Software/Developmental Tools Used
 There were a few different tools used to develop this project. Python3 was the programming language of choice for the program's development. Atom was used as the text editor where all of the coding was done and where all the project documentation was written. Additionally, the code follows the PEP8 style guide and standards, which are checked by the `.travis.yml` file every time a push is made to the project repository.
+
+Additionally to create the GUI and many of the program's features, this project uses a Python package called Tkinter.
 
 ## Project Results
 As this project is early in it's development there are not many results to share. Currently the user can create, open, and save basic text files. Additionally, there is a simple help menu.
