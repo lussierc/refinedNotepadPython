@@ -14,4 +14,5 @@ script:
   # use proselint
   - proselint README.md
   - find . -name \*.py -exec pep8 --ignore=E402 {} +
+  - cd src
   - python3 main.py
