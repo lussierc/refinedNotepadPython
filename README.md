@@ -25,4 +25,4 @@ Additionally to create the GUI and many of the program's features, this project 
 As this project is early in it's development there are not many results to share. Currently the user can create, open, and save basic text files. Additionally, there is a simple help menu.
 
 Here is an example of the program in action:
-![Here is an example of the program running.](images/program_in_action.png)
+![Here is an example of the program running.](docs/images/program_in_action.png)
